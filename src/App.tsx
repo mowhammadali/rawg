@@ -1,7 +1,7 @@
 import { Grid, GridItem , Show } from '@chakra-ui/react'
 import Navbar from './components/navbar/Navbar';
 
-const App = () => {
+const App = (): JSX.Element => {
     return (
         <Grid templateAreas={{
             base: `"nav" "main"`,
