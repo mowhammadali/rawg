@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react"
-import Request from "../services/api/games"
+import { useEffect, useState } from "react";
+import Request from "../services/api/games";
+
+export interface Platform {
+    id: number;
+    name: string;
+    slug: string;
+}
 
 export interface Game {
     name: string;
     id: number;
     background_image: string;
+    parent_platforms: { platform: Platform }[]
 }
 
 interface FetchGamesResponse {
