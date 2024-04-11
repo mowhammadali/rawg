@@ -1,33 +1,24 @@
 import { useEffect, useState } from "react";
 import Request from "../services/api/api";
 
-export interface Platform {
-    id: number;
-    name: string;
-    slug: string;
-}
-
-export interface Game {
+export interface Genre {
     name: string;
     id: number;
-    background_image: string;
-    parent_platforms: { platform: Platform }[];
-    metacritic: number;
 }
 
-interface FetchGamesResponse {
+interface FetchGenresResponse {
     count: number;
-    results: Game[];
+    results: Genre[];
 }
 
 interface UseGameType {
-    games: Game[];
+    genres: Genre[];
     error: string;
     isLoading: boolean;
 }
 
-const useGames = (): UseGameType => {
-    const [games, setGames] = useState<Game[]>([]);
+const useGenres = (): UseGameType => {
+    const [genres, setGenres] = useState<Genre[]>([]);
     const [error, setError] = useState<string>("");
     const [isLoading , setIsLoading] = useState<boolean>(false);
 
@@ -35,8 +26,8 @@ const useGames = (): UseGameType => {
         const callApi = async () => {
             setIsLoading(true);
             try {
-                const response: FetchGamesResponse = await Request.getGames()
-                setGames(response.results);
+                const response: FetchGenresResponse = await Request.getGenres()
+                setGenres(response.results);
                 setIsLoading(false);
             } 
             catch (error: any) {
@@ -47,7 +38,7 @@ const useGames = (): UseGameType => {
         callApi();
     }, [])
 
-    return {games , error , isLoading};
+    return {genres , error , isLoading};
 }
 
-export default useGames
+export default useGenres
