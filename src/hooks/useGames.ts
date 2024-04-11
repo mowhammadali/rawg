@@ -23,26 +23,31 @@ interface FetchGamesResponse {
 interface UseGameType {
     games: Game[];
     error: string;
+    isLoading: boolean;
 }
 
 const useGames = (): UseGameType => {
-    const [games, setGames] = useState<Game[]>([])
-    const [error, setError] = useState<string>("")
+    const [games, setGames] = useState<Game[]>([]);
+    const [error, setError] = useState<string>("");
+    const [isLoading , setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const callApi = async () => {
+            setIsLoading(true);
             try {
                 const response: FetchGamesResponse = await Request.getGames()
-                setGames(response.results)
+                setGames(response.results);
+                setIsLoading(false);
             } 
             catch (error: any) {
-                setError(error.message)
+                setError(error.message);
+                setIsLoading(false);
             }
         }
         callApi();
     }, [])
 
-    return {games , error};
+    return {games , error , isLoading};
 }
 
 export default useGames
