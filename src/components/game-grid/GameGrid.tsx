@@ -5,7 +5,7 @@ import GameCardSkeleton from '../game-card-skeleton/GameCardSkeleton';
 import GameCardContainer from '../game-card-container/GameCardContainer';
 
 const GameGrid = (): JSX.Element => {
-    const { games , error , isLoading } = useGames();
+    const { data , error , isLoading } = useGames();
     const skeletons: number[] = [1 , 2 , 3 , 4 , 5 ,6 , 7 , 8];
         
     if (error) return <Text>{error}</Text>
@@ -22,7 +22,7 @@ const GameGrid = (): JSX.Element => {
                     </GameCardContainer>
                 ))
                 :
-                games.map(game => (
+                data.map(game => (
                     <GameCardContainer key={game.id}>
                         <GameCard game={game}/>
                     </GameCardContainer>
