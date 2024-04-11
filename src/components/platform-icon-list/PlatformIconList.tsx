@@ -17,7 +17,7 @@ interface PropsType {
     platforms: Platform[]
 }
 
-const PlatformIconList = ({ platforms }: PropsType) => {
+const PlatformIconList = ({ platforms }: PropsType): JSX.Element => {
     const iconMap: { [key: string]: IconType } = {
         pc: FaWindows,
         playstation: FaPlaystation,
