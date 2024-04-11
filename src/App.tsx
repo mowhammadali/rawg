@@ -6,14 +6,19 @@ import GenresList from './components/Genre-list/GenresList';
 const App = (): JSX.Element => {
     return (
         <Grid templateAreas={{
-            base: `"nav" "main"`,
-            lg: `"nav nav" "aside main"`
-        }}>
+                base: `"nav" "main"`,
+                lg: `"nav nav" "aside main"`
+            }}
+            templateColumns={{
+                base: '1fr',
+                lg: '240px 1fr'
+            }}
+        >
             <GridItem area="nav">
                 <Navbar />
             </GridItem>
             <Show above="lg">
-                <GridItem area="aside">
+                <GridItem area="aside" paddingX={6}>
                     <GenresList />
                 </GridItem>
             </Show>

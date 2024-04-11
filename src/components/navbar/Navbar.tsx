@@ -3,7 +3,7 @@ import ColorModeSwitch from "../color-mode-switch/ColorModeSwitch"
 
 const Navbar = (): JSX.Element => {
     return (
-        <HStack justifyContent="space-between" padding="8px 15px">
+        <HStack justifyContent="space-between" paddingX={5} paddingY={3}>
             <Image src="./assets/logo/logo.webp" boxSize="60px"/>
             <ColorModeSwitch />
         </HStack>

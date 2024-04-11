@@ -10,7 +10,7 @@ type PropsType = {
 
 const GameCard = ({ game }: PropsType): JSX.Element => {
     return (
-        <Card height={'100%'}>
+        <Card>
             <Image src={getCroppedImageUrl(game.background_image)}/>
             <CardBody>
                 <Heading fontSize="2xl">{game.name}</Heading>

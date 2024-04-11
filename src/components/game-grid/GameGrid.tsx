@@ -11,8 +11,8 @@ const GameGrid = (): JSX.Element => {
     if (error) return <Text>{error}</Text>
    
     return (
-        <SimpleGrid justifyContent={'space-between'} gap="30px" justifyItems={'center'} 
-            spacing={10} columns={{sm: 1 , md: 2 , lg: 3 , xl: 4}} padding={8}>
+        <SimpleGrid justifyContent={'space-between'} justifyItems={'center'} 
+            spacing={3} columns={{sm: 1 , md: 2 , lg: 3 , xl: 4}} paddingX={4} paddingBottom={4}>
             {
                 isLoading
                 ?
