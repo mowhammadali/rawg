@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
 import Request from "../services/api/games"
 
-interface Game {
-    name: string
-    id: number
+export interface Game {
+    name: string;
+    id: number;
+    background_image: string;
 }
 
 interface FetchGamesResponse {
-    count: number
-    results: Game[]
+    count: number;
+    results: Game[];
 }
 
 interface UseGameType {
