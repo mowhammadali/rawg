@@ -3,10 +3,15 @@ import useGames from '../../hooks/useGames';
 import GameCard from '../game-card/GameCard';
 import GameCardSkeleton from '../game-card-skeleton/GameCardSkeleton';
 import GameCardContainer from '../game-card-container/GameCardContainer';
+import { Genre } from '../../hooks/useGenres';
 
-const GameGrid = (): JSX.Element => {
-    const { data , error , isLoading } = useGames();
-    const skeletons: number[] = [1 , 2 , 3 , 4 , 5 ,6 , 7 , 8];
+interface Props {
+    selectedGenre: Genre | null
+}
+
+const GameGrid = ({ selectedGenre }: Props): JSX.Element => {
+    const { data , error , isLoading } = useGames(selectedGenre);
+    const skeletons: number[] = [1 , 2 , 3 , 4 , 5 ,6 , 7 , 8 , 9 , 10 , 11 , 12];
         
     if (error) return <Text>{error}</Text>
    
